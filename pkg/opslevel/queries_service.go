@@ -195,7 +195,7 @@ func ListServicesByTag(client *opslevel.Client, value string) ([]Service, error)
 
 type ListServicesByTagQuery struct {
 	Account struct {
-		Services ServiceConnection `graphql:"services(tag: {key:$key, value:}, after: $after, first: $first)"`
+		Services ServiceConnection `graphql:"services(tag: {key:$key}, after: $after, first: $first)"`
 	}
 }
 
