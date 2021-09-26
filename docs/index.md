@@ -5,6 +5,8 @@ subcategory: ""
 description: |-
   
 ---
+# NOTICE
+> OpsLevel now has an officially supported [terraform provider](https://registry.terraform.io/providers/OpsLevel/opslevel/latest/docs) and as such would like to direct you to begin using it over this one.  OpsLevel would like to thank Zapier for beginning this terraform provider as it provided a great jumping off point! 
 
 # opslevel Provider
 
