@@ -88,7 +88,7 @@ func flattenService(svc *Service) map[string]interface{} {
 	m["product"] = string(svc.Product)
 	m["tier_id"] = string(svc.Tier.Id)
 
-	m["slug"] = strings.Replace(svc.HtmlURL,"https://app.opslevel.com/services/", "", 1)
+	m["slug"] = getServiceSlug(svc)
 	aliases := []string{}
 	for i, alias := range svc.Aliases {
 		str := string(alias)
@@ -118,4 +118,11 @@ func expandServiceAliases(cfg []interface{}) []string {
 	}
 
 	return aliases
+}
+
+func getServiceSlug(svc *Service) string {
+	slug := strings.Replace(svc.HtmlURL, "https://app.opslevel.com/services/", "", 1)
+	slug = strings.Replace(slug, "http://app.opslevel.com/services/", "", 1)
+
+	return slug
 }
