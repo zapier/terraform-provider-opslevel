@@ -1,9 +1,10 @@
 package opslevel
 
 import (
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"log"
 	"strings"
+
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 var serviceSchema = map[string]*schema.Schema{
@@ -88,7 +89,13 @@ func flattenService(svc *Service) map[string]interface{} {
 	m["product"] = string(svc.Product)
 	m["tier_id"] = string(svc.Tier.Id)
 
-	m["slug"] = strings.Replace(svc.HtmlURL,"https://app.opslevel.com/services/", "", 1)
+	// Create replacer with pairs as arguments.
+	r := strings.NewReplacer(
+		"https://app.opslevel.com/services/", "",
+		"http://app.opslevel.com/services/", "",
+	)
+
+	m["slug"] = r.Replace(svc.HtmlURL)
 	aliases := []string{}
 	for i, alias := range svc.Aliases {
 		str := string(alias)
