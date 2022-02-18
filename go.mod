@@ -17,6 +17,7 @@ require (
 	github.com/opslevel/opslevel-go v0.1.1-0.20210513125820-487a475934b0
 	github.com/shurcooL/graphql v0.0.0-20200928012149-18c5c3165e3a
 	github.com/stretchr/testify v1.6.1 // indirect
+	github.com/ulikunitz/xz v0.5.8 // indirect
 	github.com/zclconf/go-cty v1.5.1 // indirect
 	github.com/zclconf/go-cty-yaml v1.0.2 // indirect
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
